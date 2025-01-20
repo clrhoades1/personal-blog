@@ -1,4 +1,7 @@
-# Astro Starter Kit: Basics
+# Personal Blog Repository
+##
+
+## Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics

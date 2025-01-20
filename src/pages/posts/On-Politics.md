@@ -1,6 +1,6 @@
 ---
 title: 'On Politics'
-pubDate: 
+pubDate: 1-20-2025
 description: 'Navigating the hidden power and importance of inneroffice politiking'
 author: 'Astro Learner'
 image:
@@ -14,7 +14,7 @@ Published on: FILL IN
 
 For those of you lucky viewers who have seen The Wire, you are well aware of the politics and bureaucracy that enable industries and governments to function. But for most new software developers, I imagine you have no idea just how important this subversive standards are to every day life as a working software developer. Sure, if you are building your own project or in a small start-up, there may not be much politics to navigate. For those of you in any type of medium to large company, you know that it is just as important as the coding work itself. 
 
-There is no presentation given to new hires on navigating your companies innerworkings and unspoken customs, it's largely a trial and error effort. It's one that I am still navigating, but here are a few of the lessons I have learned from trying to navigate the politics.
+There is no presentation given to new hires on navigating your companies inner workings and unspoken customs, it's largely a trial and error effort. It's one that I am still navigating, but here are a few of the lessons I have learned from trying to navigate the politics.
 
 ## Know Who You Report To and When
 Obviously, before you come into a company, you are told who your hiring manager is. You probably even communicated with them before you started. But I make this point because you will report to more people than *just* your hiring manager. Likely, there will be additional staff to consider: your "mentor", your team lead(s), your director. When you get hired to a new position, take time early to figure out the various components of your team and try to understand their roles. Here are a few examples to consider:
@@ -33,9 +33,9 @@ And honestly, if you are in a situation where you feel you *have* to go over the
 
 
 ## Keep Your Immediate Supervisor Updated
-Obviously you do not need to tell your supervisor every time you commit code. But consider that your supervisors are the ones who will get contacted when something is wrong. They effectively protect you from a lot of the external politiking, but this relationship should not be one-way. 
+Obviously you do not need to tell your supervisor every time you commit code. But consider that your supervisors are the ones who will get contacted when something is wrong. They effectively protect you from a lot of the external politicking, but this relationship should not be one-way. 
 
-Here is an example: let's say you are working an oncall rotation. You are notified of an issue with an external web service dependency: performance of the service is degradated and it is being researched. At this time, there is no obvious issue with your application. 
+Here is an example: let's say you are working an oncall rotation. You are notified of an issue with an external web service dependency: performance of the service is degraded and it is being researched. At this time, there is no obvious issue with your application. 
 
 Should the team lead be notified? 
 

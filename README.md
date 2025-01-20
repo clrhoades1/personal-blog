@@ -1,5 +1,6 @@
 # Personal Blog Repository
-##
+## Infrastructure
+This blog is build using the NPM package Astro and is deployed using Netlify. 
 
 ## Astro Starter Kit: Basics
 

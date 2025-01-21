@@ -1,25 +1,13 @@
 ---
 import '../styles/global.css';
+import Links from '../components/Links.astro';
+import Layout from '../layouts/Layout.astro';
+import Blogs from '../components/Blogs.astro'
 ---
 
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+<Layout>
+	<Links/>
+	<Blogs/>
+</Layout>
 
-<body>
-    <h1>My Astro Site</h1>
-    <h1>Blog</h1>
-    <h2>... and my new Astro site!</h2>
-  
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-  
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
 
-    <h1>My Astro Learning Blog</h1>
-    <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-      <li><a href="/posts/On-Politics/">On Politics</a></li>
-      <li><a href="/posts/On-legacy-code/">On Legacy Code</a></li>
-      <li><a href="/posts/post-3/">Post 3</a></li>
-    </ul>
-</body>

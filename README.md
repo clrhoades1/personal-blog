@@ -9,6 +9,12 @@ https://www.npmjs.com/package/markdown-spellcheck
 ```npm run dev```
 ```mdspell "**/<name>/md" ```
 
+
+## Website Links
+https://connorrhoades.netlify.app/
+https://app.netlify.com/teams/clrhoades1/sites
+
+
 ## Astro Starter Kit: Basics
 
 ```sh

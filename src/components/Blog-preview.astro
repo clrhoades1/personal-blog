@@ -1,0 +1,16 @@
+---
+import '../styles/global.css';
+const posts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
+---
+
+<!-- TODO: Limit the number of blog entries -->
+{posts.map(post => 
+    <div id="BlogItem">
+        <a href={post.url} class="fill-div">
+            <h3>{post.frontmatter.title}</h3>
+            <p>Publish Date: {post.frontmatter.pubDate}</p>
+            <p>{post.frontmatter.description}</p>
+        </a>
+    </div>
+)}
+

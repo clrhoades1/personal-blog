@@ -3,13 +3,13 @@ import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Links from '../components/Links.astro';
 import AboutMe from '../components/About-me.astro';
-import Warning from '../components/Warning.astro'
+import Warning from '../components/Warning.astro';
+import Footer from '../components/Footer.astro';
+import Blog from '../components/Blog-preview.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
-// TODO: Figure out how to get a subset of blogs to put here.
 
 
 <Layout>
@@ -17,6 +17,8 @@ import Warning from '../components/Warning.astro'
 	<Links/>
 	<Welcome />
 	<AboutMe />
+	<Blog />
+	<Footer />
 </Layout>
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'On Office Politics'
-pubDate: 1-20-2025
+pubDate: 1/20/2025
 description: 'Navigating the hidden power and importance of inneroffice politiking'
 author: 'Connor Rhoades'
 image:

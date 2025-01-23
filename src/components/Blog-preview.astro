@@ -3,6 +3,8 @@ import '../styles/global.css';
 const posts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
 ---
 
+<h3>Recent Blogs</h3>
+
 <!-- TODO: Limit the number of blog entries -->
 {posts.map(post => 
     <div id="BlogItem">

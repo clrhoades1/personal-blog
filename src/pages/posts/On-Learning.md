@@ -2,7 +2,7 @@
 title: On Learning
 author: Connor Rhoades
 description: "Some thoughts on the practice of learning and how I ensure I am an effective lifelong learner"
-pubDate: 2025-01-30
+pubDate: 01/30/2025
 tags: ["astro", "learning in public"]
 layout: '../../layouts/Blog Post.astro'
 ---

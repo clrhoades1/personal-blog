@@ -4,6 +4,8 @@ author: Connor Rhoades
 description: "The dark secret of the technology world is that everything relies on Legacy Code."
 pubDate: 01/20/2025
 tags: ["astro", "blogging", "learning in public", "successes"]
+link: "../../pages/component-posts/on-legacy-code.astro"
+layout: '../../layouts/Blog Post.astro'
 ---
 
 # On Legacy Code

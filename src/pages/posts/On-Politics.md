@@ -7,6 +7,7 @@ image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["politics", "blogging", "learning in public", "inner office communications"]
+layout: '../../layouts/Blog Post.astro'
 ---
 # On Office Politics
 

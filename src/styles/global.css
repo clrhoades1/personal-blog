@@ -31,6 +31,7 @@ a.fill-div {
 
 a {
     text-decoration:none;
+    color: black;
 }
 
 #header-bar {
@@ -59,6 +60,7 @@ a {
     /* flex-wrap: wrap;  */
     align-items: center; 
     /* background-color: green; */
+    position:sticky;
 }
 
 #footer-container > div {

@@ -6,7 +6,7 @@ const posts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: tru
 <h3>Recent Blogs</h3>
 
 <!-- TODO: Have a parameter to limit the number of blog entries -->
-{posts.map(post => 
+{posts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate)).map(post => 
     <div id="BlogItem">
         <a href={post.url} class="fill-div">
             <h3>{post.frontmatter.title}</h3>

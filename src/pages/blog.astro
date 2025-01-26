@@ -2,15 +2,14 @@
 import '../styles/global.css';
 import Links from '../components/Links.astro';
 import Layout from '../layouts/Layout.astro';
-import Blogs from '../components/Blogs.astro';
 import Warning from '../components/Warning.astro';
-import Blog from '../components/Blog-preview.astro';
+import BlogPreview from '../components/Blog-preview.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
 	<Links/>
-	<Blog/>
+	<BlogPreview numOfPosts=2 />
 	<Footer />
 </Layout>
 

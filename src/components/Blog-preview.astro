@@ -4,6 +4,19 @@ const posts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: tru
 const { numOfPosts } = Astro.props;
 ---
 
+
+<h3>Recent Blogs</h3>
+
+<div id="blogNavigation">
+    <div id="currentListOfEntries"></div>
+    <div id="nextBlogPage"><button>Next Page</button></div>
+</div>
+
+<div style="padding-bottom:50px;">
+
+</div>
+
+<!-- TODO: Refactor -->
 <script define:vars={{ numOfPosts , posts}}>
     const numberOfPostsToDisplay = Number(numOfPosts)
     const page = 0;
@@ -39,29 +52,14 @@ const { numOfPosts } = Astro.props;
         newAttribute.append(newP2);
 
         newDiv.append(newAttribute);
+        newDiv.append(document.createElement("hr"));
 
-        document.body.insertBefore(newDiv, document.getElementById("demo"))
+        document.body.insertBefore(newDiv, document.getElementById("blogNavigation"))
     }
+
+    document.getElementById("currentListOfEntries").innerText = firstPost + " - " + lastPost
 </script>
 
-<!-- TODO: Why is this rendering second? -->
-<h3>Recent Blogs</h3>
-
-
-
-<div id="demo"></div>
-
-<!-- TODO: Have a parameter to limit the number of blog entries -->
-<!-- {posts.map(post => 
-    <div id="BlogItem">
-        <a href={post.url} class="fill-div">
-            <h3>{post.frontmatter.title}</h3>
-            <p>Publish Date: {post.frontmatter.pubDate}</p>
-            <p>{post.frontmatter.description}</p>
-        </a>
-        <hr/>
-    </div>
-)} -->
 
 <!--
 
@@ -69,5 +67,5 @@ What did I learn:
 1. The --- block is rendered server side, <script> is client side. 
 2. I need to be VERY explicit with component names
 3. I need to be careful about NOT being right next to parameter input. 
-
+4. The position of an HTML element in reference to the script block matters if the script block is generating HTML.
 -->

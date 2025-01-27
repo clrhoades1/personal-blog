@@ -70,3 +70,22 @@ a {
 #socials {
     
 }
+
+#blogNavigation {
+    display: relative; 
+    padding-bottom: 5px;
+}
+
+#currentListOfEntries {
+    position: relative;
+    float: left;    
+}
+
+#nextBlogPage{
+    position: relative;
+    float: right;
+}
+
+/* #blogNavigation > div {
+    flex: 1 1 calc(50%);
+} */

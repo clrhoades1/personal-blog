@@ -8,8 +8,9 @@ const { numOfPosts } = Astro.props;
 <h3>Recent Blogs</h3>
 
 <div id="blogNavigation">
+    
     <div id="currentListOfEntries"></div>
-    <div id="nextBlogPage"><button>Next Page</button></div>
+    <div id="nextBlogPage"><button id="nextBlogPageButton">Next Page</button></div>
 </div>
 
 <div style="padding-bottom:50px;">
@@ -18,46 +19,71 @@ const { numOfPosts } = Astro.props;
 
 <!-- TODO: Refactor -->
 <script define:vars={{ numOfPosts , posts}}>
-    const numberOfPostsToDisplay = Number(numOfPosts)
     const page = 0;
-    let lastPost = numberOfPostsToDisplay + (numberOfPostsToDisplay * page);
 
-    if (lastPost > posts.length) {
-        lastPost = posts.length
+    function updateBlogListing(page) {
+        page += 1;
+        displayBlogEntries(page)
+
+        // TODO: if on last page after the update, gray out the button
     }
 
-    const firstPost = page * numberOfPostsToDisplay;
-    
-    for (const post of posts.slice(firstPost, lastPost)) {
-        console.log("this is a test");
-        const newDiv = document.createElement("div");
+    function displayBlogEntries(page) {
+        const numberOfPostsToDisplay = Number(numOfPosts)
+        let lastPost = numberOfPostsToDisplay + (numberOfPostsToDisplay * page);
 
+        if (lastPost > posts.length) {
+            lastPost = posts.length
+        }
+        const firstPost = page * numberOfPostsToDisplay;
 
-        const newAttribute = document.createElement("a");
-        newAttribute.href = post.url;
+        writeEntriesToPage(posts, firstPost, lastPost);
 
-        const newHeader = document.createElement("h3");
-        newHeader.innerText=post.frontmatter.title;
-
-        const newP = document.createElement("p");
-        newP.innerText="Publish Date: " + post.frontmatter.pubDate;
-
-        const newP2 = document.createElement("p");
-        newP2.innerText=post.frontmatter.description;
-
-
-
-        newAttribute.append(newHeader);
-        newAttribute.append(newP);
-        newAttribute.append(newP2);
-
-        newDiv.append(newAttribute);
-        newDiv.append(document.createElement("hr"));
-
-        document.body.insertBefore(newDiv, document.getElementById("blogNavigation"))
+        document.getElementById("currentListOfEntries").innerText = firstPost + " - " + lastPost
     }
 
-    document.getElementById("currentListOfEntries").innerText = firstPost + " - " + lastPost
+    function generateFirstPostNumber() {
+
+    }
+
+    function generateLastPostNumber() {
+
+    }
+
+    function writeEntriesToPage(posts, firstPost, lastPost) {
+        for (const post of posts.slice(firstPost, lastPost)) {
+            console.log("this is a test");
+            const newDiv = document.createElement("div");
+
+
+            const newAttribute = document.createElement("a");
+            newAttribute.href = post.url;
+
+            const newHeader = document.createElement("h3");
+            newHeader.innerText=post.frontmatter.title;
+
+            const newP = document.createElement("p");
+            newP.innerText="Publish Date: " + post.frontmatter.pubDate;
+
+            const newP2 = document.createElement("p");
+            newP2.innerText=post.frontmatter.description;
+
+
+
+            newAttribute.append(newHeader);
+            newAttribute.append(newP);
+            newAttribute.append(newP2);
+
+            newDiv.append(newAttribute);
+            newDiv.append(document.createElement("hr"));
+
+            document.body.insertBefore(newDiv, document.getElementById("blogNavigation"))
+        }
+    }
+
+    displayBlogEntries(0)
+
+    document.getElementById("nextBlogPageButton").addEventListener("click", () => updateBlogListing(page));
 </script>
 
 

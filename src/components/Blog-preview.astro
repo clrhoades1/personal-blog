@@ -7,10 +7,14 @@ const { numOfPosts } = Astro.props;
 
 <h3>Recent Blogs</h3>
 
+<div id="blog-entries"></div>
+
 <div id="blogNavigation">
     
     <div id="currentListOfEntries"></div>
     <div id="nextBlogPage"><button id="nextBlogPageButton">Next Page</button></div>
+    <div id="previousBlogPage"><button id="previousBlogPageButton">Previous Page</button></div>
+
 </div>
 
 <div style="padding-bottom:50px;">
@@ -20,9 +24,22 @@ const { numOfPosts } = Astro.props;
 <!-- TODO: Refactor -->
 <script define:vars={{ numOfPosts , posts}}>
     const page = 0;
+    let lastPost = 0;
+    let firstPost = 0;
 
-    function updateBlogListing(page) {
-        page += 1;
+    function updateBlogListing(page, nextpage) {
+
+        if (nextpage) {
+            page += 1;
+        } else {
+            page -= 1;
+        }
+
+        if(page < 0) {
+            page = 0;
+        }
+
+        document.getElementById("blog-entries").innerHTML = ""
         displayBlogEntries(page)
 
         // TODO: if on last page after the update, gray out the button
@@ -30,16 +47,28 @@ const { numOfPosts } = Astro.props;
 
     function displayBlogEntries(page) {
         const numberOfPostsToDisplay = Number(numOfPosts)
-        let lastPost = numberOfPostsToDisplay + (numberOfPostsToDisplay * page);
+        lastPost = numberOfPostsToDisplay + (numberOfPostsToDisplay * page);
 
         if (lastPost > posts.length) {
             lastPost = posts.length
         }
-        const firstPost = page * numberOfPostsToDisplay;
+        firstPost = page * numberOfPostsToDisplay;
 
         writeEntriesToPage(posts, firstPost, lastPost);
 
-        document.getElementById("currentListOfEntries").innerText = firstPost + " - " + lastPost
+        document.getElementById("currentListOfEntries").innerText = (firstPost+1) + " - " + lastPost
+        
+        if(lastPost >= posts.length) {
+            disableNextPageButton()
+        } else {
+            enableNextPageButton()
+        }
+
+        if(firstPost == 0 ) {
+            disablePreviousPageButton()
+        } else {
+            enablePreviousPageButton()
+        }
     }
 
     function generateFirstPostNumber() {
@@ -50,11 +79,32 @@ const { numOfPosts } = Astro.props;
 
     }
 
-    function writeEntriesToPage(posts, firstPost, lastPost) {
-        for (const post of posts.slice(firstPost, lastPost)) {
-            console.log("this is a test");
-            const newDiv = document.createElement("div");
+    function disableNextPageButton() {
+        document.getElementById("nextBlogPageButton").disabled = true;
+    }
 
+    function disablePreviousPageButton() {
+        document.getElementById("previousBlogPageButton").disabled = true;
+    }
+
+    function enableNextPageButton() {
+        document.getElementById("nextBlogPageButton").disabled = false;
+    }
+
+    function enablePreviousPageButton() {
+        document.getElementById("previousBlogPageButton").disabled = false;
+    }
+
+    function writeEntriesToPage(posts, firstPost, lastPost) {
+        // let blogListingDiv = document.createElement("div")
+        // blogListingDiv.id = "blog-entries"
+        let blogListingDiv = document.getElementById("blog-entries")
+
+        for (const post of posts.slice(firstPost, lastPost)) {
+
+
+            const newDiv = document.createElement("div");
+            newDiv.id="blog-entry"
 
             const newAttribute = document.createElement("a");
             newAttribute.href = post.url;
@@ -76,14 +126,26 @@ const { numOfPosts } = Astro.props;
 
             newDiv.append(newAttribute);
             newDiv.append(document.createElement("hr"));
-
-            document.body.insertBefore(newDiv, document.getElementById("blogNavigation"))
+            blogListingDiv.append(newDiv)
         }
+
+        document.body.insertBefore(blogListingDiv, document.getElementById("blogNavigation"))
     }
 
     displayBlogEntries(0)
 
-    document.getElementById("nextBlogPageButton").addEventListener("click", () => updateBlogListing(page));
+    if(lastPost >= posts.length) {
+        disableNextPageButton()
+    }
+
+    if(firstPost == 0 ) {
+        disablePreviousPageButton()
+    }
+
+
+
+    document.getElementById("nextBlogPageButton").addEventListener("click", () => updateBlogListing(page, nextpage=true));
+    document.getElementById("previousBlogPageButton").addEventListener("click", () => updateBlogListing(page, nextpage=false));
 </script>
 
 

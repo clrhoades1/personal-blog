@@ -81,7 +81,13 @@ a {
     float: left;    
 }
 
+
 #nextBlogPage{
+    position: relative;
+    float: right;
+}
+
+#previousBlogPage{
     position: relative;
     float: right;
 }

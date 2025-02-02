@@ -97,8 +97,8 @@ a.nav-links:hover {
     color: #233142;
 }
 
-#blog-link:hover {
-    
+#blog-entry:hover {
+    background-color: gray;
 }
 
 #name {

@@ -122,11 +122,13 @@ const { numOfPosts } = Astro.props;
             blogPostLink.append(blogSummary);
 
             blogPost.append(blogPostLink);
+            // TODO: Make the hr outside of the blog post div
             blogPost.append(document.createElement("hr"));
             blogListingDiv.append(blogPost)
         }
 
         document.body.insertBefore(blogListingDiv, document.getElementById("blogNavigation"))
+        // document.body.insertBefore(document.createElement("hr"),document.getElementById("blogNavigation"))
     }
 
     function onInitialPageLoad() {

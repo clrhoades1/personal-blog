@@ -5,78 +5,78 @@ const { numOfPosts } = Astro.props;
 ---
 
 
-<h3>Recent Blogs</h3>
+<h2>Recent Blogs</h2>
 
 <div id="blog-entries"></div>
 
 <div id="blogNavigation">
-    
+    <!-- <style scoped>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
+    </style> -->
+
     <div id="currentListOfEntries"></div>
     <div id="nextBlogPage"><button id="nextBlogPageButton">Next Page</button></div>
-    <div id="previousBlogPage"><button id="previousBlogPageButton">Previous Page</button></div>
+    <div id="previousBlogPage" style="margin-right:4px;"><button id="previousBlogPageButton">Previous Page</button></div>
 
 </div>
 
-<div style="padding-bottom:50px;">
+<div style="padding-bottom:100px;">
 
 </div>
 
 <!-- TODO: Refactor -->
 <script define:vars={{ numOfPosts , posts}}>
-    const page = 0;
-    let lastPost = 0;
-    let firstPost = 0;
+    const currentPage = 0;
+    let lastPostNumber = 0;
+    let firstPostNumber = 0;
 
-    function updateBlogListing(page, nextpage) {
-
-        if (nextpage) {
-            page += 1;
+    // Determine the current listed page and display approriate blog entries based on the page
+    function updateBlogListing(currentPage, showNextPage) {
+        if (showNextPage) {
+            currentPage += 1;
         } else {
-            page -= 1;
+            currentPage -= 1;
         }
 
-        if(page < 0) {
-            page = 0;
+        if(currentPage < 0) {
+            currentPage = 0;
         }
 
+        // Empties any blog entries currently written on the page
         document.getElementById("blog-entries").innerHTML = ""
-        displayBlogEntries(page)
 
-        // TODO: if on last page after the update, gray out the button
+        displayBlogEntries(currentPage)
     }
 
-    function displayBlogEntries(page) {
-        const numberOfPostsToDisplay = Number(numOfPosts)
-        lastPost = numberOfPostsToDisplay + (numberOfPostsToDisplay * page);
-
-        if (lastPost > posts.length) {
-            lastPost = posts.length
-        }
-        firstPost = page * numberOfPostsToDisplay;
-
-        writeEntriesToPage(posts, firstPost, lastPost);
-
-        document.getElementById("currentListOfEntries").innerText = (firstPost+1) + " - " + lastPost
-        
-        if(lastPost >= posts.length) {
+    function checkIfButtonsShouldBeModified(firstPostNumber, lastPostNumber, posts){
+        if(lastPostNumber >= posts.length) {
             disableNextPageButton()
         } else {
             enableNextPageButton()
         }
 
-        if(firstPost == 0 ) {
+        if(firstPostNumber == 0 ) {
             disablePreviousPageButton()
         } else {
             enablePreviousPageButton()
         }
     }
 
-    function generateFirstPostNumber() {
+    function displayBlogEntries(currentPage) {
+        const numberOfPostsToDisplay = Number(numOfPosts)
 
-    }
 
-    function generateLastPostNumber() {
+        firstPostNumber = currentPage * numberOfPostsToDisplay;
+        lastPostNumber = numberOfPostsToDisplay + (numberOfPostsToDisplay * currentPage);
 
+        if (lastPostNumber > posts.length) {
+            lastPostNumber = posts.length
+        }
+
+
+        writeEntriesToPage(posts, firstPostNumber, lastPostNumber);
+        document.getElementById("currentListOfEntries").innerText = (firstPostNumber+1) + " - " + lastPostNumber
+        checkIfButtonsShouldBeModified(firstPostNumber, lastPostNumber, posts)
     }
 
     function disableNextPageButton() {
@@ -95,57 +95,56 @@ const { numOfPosts } = Astro.props;
         document.getElementById("previousBlogPageButton").disabled = false;
     }
 
-    function writeEntriesToPage(posts, firstPost, lastPost) {
-        // let blogListingDiv = document.createElement("div")
-        // blogListingDiv.id = "blog-entries"
+    function writeEntriesToPage(posts, firstPostNumber, lastPostNumber) {
         let blogListingDiv = document.getElementById("blog-entries")
 
-        for (const post of posts.slice(firstPost, lastPost)) {
+        for (const post of posts.slice(firstPostNumber, lastPostNumber)) {
+            const blogPost = document.createElement("div");
+            blogPost.id="blog-entry"
+
+            const blogPostLink = document.createElement("a");
+            blogPostLink.id = "blog-link"
+            blogPostLink.href = post.url;
+
+            const blogTitle = document.createElement("h3");
+            blogTitle.innerText=post.frontmatter.title;
+
+            const blogPublishDate = document.createElement("p");
+            blogPublishDate.innerText="Publish Date: " + post.frontmatter.pubDate;
+
+            const blogSummary = document.createElement("p");
+            blogSummary.innerText=post.frontmatter.description;
 
 
-            const newDiv = document.createElement("div");
-            newDiv.id="blog-entry"
 
-            const newAttribute = document.createElement("a");
-            newAttribute.href = post.url;
+            blogPostLink.append(blogTitle);
+            blogPostLink.append(blogPublishDate);
+            blogPostLink.append(blogSummary);
 
-            const newHeader = document.createElement("h3");
-            newHeader.innerText=post.frontmatter.title;
-
-            const newP = document.createElement("p");
-            newP.innerText="Publish Date: " + post.frontmatter.pubDate;
-
-            const newP2 = document.createElement("p");
-            newP2.innerText=post.frontmatter.description;
-
-
-
-            newAttribute.append(newHeader);
-            newAttribute.append(newP);
-            newAttribute.append(newP2);
-
-            newDiv.append(newAttribute);
-            newDiv.append(document.createElement("hr"));
-            blogListingDiv.append(newDiv)
+            blogPost.append(blogPostLink);
+            blogPost.append(document.createElement("hr"));
+            blogListingDiv.append(blogPost)
         }
 
         document.body.insertBefore(blogListingDiv, document.getElementById("blogNavigation"))
     }
 
-    displayBlogEntries(0)
+    function onInitialPageLoad() {
+        displayBlogEntries(0)
 
-    if(lastPost >= posts.length) {
-        disableNextPageButton()
+        if(lastPostNumber >= posts.length) {
+            disableNextPageButton()
+        }
+
+        if(firstPostNumber == 0) {
+            disablePreviousPageButton()
+        }
+
+        document.getElementById("nextBlogPageButton").addEventListener("click", () => updateBlogListing(currentPage, showNextPage=true));
+        document.getElementById("previousBlogPageButton").addEventListener("click", () => updateBlogListing(currentPage, showNextPage=false));
     }
 
-    if(firstPost == 0 ) {
-        disablePreviousPageButton()
-    }
-
-
-
-    document.getElementById("nextBlogPageButton").addEventListener("click", () => updateBlogListing(page, nextpage=true));
-    document.getElementById("previousBlogPageButton").addEventListener("click", () => updateBlogListing(page, nextpage=false));
+    onInitialPageLoad()
 </script>
 
 

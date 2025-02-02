@@ -1,8 +1,29 @@
+/*
+My color palette: https://www.shecodes.io/palettes/267
+.first-color { 
+	background: #233142; 
+}
+	
+.second-color { 
+	background: #455d7a; 
+}
+
+.third-color { 
+	background: #f95959; 
+}
+
+.fourth-color { 
+	background: #e3e3e3; 
+}
+
+*/
+
 html {
-    background-color: #f1f5f9;
+    background-color: #e3e3e3;
     font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
               'DejaVu Sans Mono', monospace;
     font-weight: normal;
+    color: #233142;
 }
   
 body {
@@ -31,7 +52,35 @@ a.fill-div {
 
 a {
     text-decoration:none;
-    color: black;
+}
+
+button {
+    background-color: #f95959; 
+    border: none;
+    color: #e3e3e3;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+button:enabled:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button:disabled { 
+    opacity: 0.4;
+}
+
+a.nav-links {
+    color: #f95959;
+}
+
+a.nav-links:hover {
+    color: #f95959;
+    text-decoration: underline;
 }
 
 #header-bar {
@@ -44,22 +93,22 @@ a {
     line-height: 50%;
 }
 
+#blog-link {
+    color: #233142;
+}
+
+#blog-link:hover {
+    
+}
+
 #name {
     text-align: left;
     line-height: 50%
 }
 
-/* footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-} */
-
 #footer-container { 
     display: flex; 
-    /* flex-wrap: wrap;  */
     align-items: center; 
-    /* background-color: green; */
     position:sticky;
 }
 
@@ -72,7 +121,8 @@ a {
 }
 
 #blogNavigation {
-    display: relative; 
+    display: relative;
+    padding-top: 10px; 
     padding-bottom: 5px;
 }
 
@@ -91,7 +141,3 @@ a {
     position: relative;
     float: right;
 }
-
-/* #blogNavigation > div {
-    flex: 1 1 calc(50%);
-} */

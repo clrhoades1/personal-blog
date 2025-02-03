@@ -14,9 +14,9 @@ const { numOfPosts } = Astro.props;
         @import url("https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css");
     </style> -->
 
-    <div id="currentListOfEntries"></div>
-    <div id="nextBlogPage"><button id="nextBlogPageButton">Next Page</button></div>
-    <div id="previousBlogPage" style="margin-right:4px;"><button id="previousBlogPageButton">Previous Page</button></div>
+    <!-- <div id="currentListOfEntries"></div> -->
+    <div id="nextBlogPage"><button id="nextBlogPageButton">Next &raquo;</button></div>
+    <div id="previousBlogPage" style="margin-right:4px;"><button id="previousBlogPageButton">&laquo; Previous</button></div>
 
 </div>
 
@@ -75,7 +75,7 @@ const { numOfPosts } = Astro.props;
 
 
         writeEntriesToPage(posts, firstPostNumber, lastPostNumber);
-        document.getElementById("currentListOfEntries").innerText = (firstPostNumber+1) + " - " + lastPostNumber
+        // document.getElementById("currentListOfEntries").innerText = (firstPostNumber+1) + " - " + lastPostNumber
         checkIfButtonsShouldBeModified(firstPostNumber, lastPostNumber, posts)
     }
 

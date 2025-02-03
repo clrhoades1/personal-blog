@@ -36,6 +36,8 @@ body {
     max-width: 80ch;
     padding: 1rem;
     line-height: 1.5;
+    /* opacity: 0;
+    transition: opacity .05s; */
 }
   
 * {
@@ -67,7 +69,7 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    border-radius: 12px;
+    /* border-radius: 12px; */
 }
 
 button:enabled:hover {
@@ -95,6 +97,16 @@ a.nav-links:hover {
 #links {
     text-align: right;
     line-height: 50%;
+    margin-top: 10px;
+    margin-bottom:30px;
+}
+
+#links span {
+    padding-right: 20px;
+}
+
+#links a {
+    padding-right: 20px;
 }
 
 #blog-link {
@@ -102,11 +114,12 @@ a.nav-links:hover {
 }
 
 #blog-entry {
-    
+    transition-duration: .5s;
+    border-radius:10px;
 }
 
 #blog-entry:hover {
-    background-color: gray;
+    background-color: rgba(184, 182, 182, 0.568);
 }
 
 #name {

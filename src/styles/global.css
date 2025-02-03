@@ -18,8 +18,12 @@ My color palette: https://www.shecodes.io/palettes/267
 
 */
 
+:root {
+    --main-bg-color: #e3e3e3;
+}
+
 html {
-    background-color: #e3e3e3;
+    background-color: var(--main-bg-color);
     font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
               'DejaVu Sans Mono', monospace;
     font-weight: normal;
@@ -97,6 +101,10 @@ a.nav-links:hover {
     color: #233142;
 }
 
+#blog-entry {
+    
+}
+
 #blog-entry:hover {
     background-color: gray;
 }
@@ -140,4 +148,37 @@ a.nav-links:hover {
 #previousBlogPage{
     position: relative;
     float: right;
+}
+
+#pub-date {
+    font-size:12px;
+    float: left;
+    margin:0px;
+    text-align:center; 
+    align-content: center;
+    padding-left:3px;
+    font-style: italic;
+}
+
+#blogDateDiv {
+    display: flex;
+    height: 30px;
+}
+
+#calendarImg {
+    float: left;
+    width: 30px;
+    height: auto;
+    padding:0px;
+}
+
+#blogTitle {
+    padding-left:4px;
+    margin-bottom: 0px;
+}
+
+#blog-summary { 
+    margin-top:0px;
+    padding-left:5px;
+    margin-bottom:30px;
 }

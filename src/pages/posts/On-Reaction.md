@@ -1,7 +1,7 @@
 ---
 title: On Reaction
 author: Connor Rhoades
-description: ""
+description: "Discussing the human response of reactivity and why you need to control how you react"
 pubDate: 01/26/2025
 tags: ["astro", "reaction", "stress", "growth"]
 layout: '../../layouts/Blog Post.astro'

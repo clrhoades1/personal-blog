@@ -106,24 +106,40 @@ const { numOfPosts } = Astro.props;
             blogPostLink.id = "blog-link"
             blogPostLink.href = post.url;
 
+
             const blogTitle = document.createElement("h3");
             blogTitle.innerText=post.frontmatter.title;
+            blogTitle.id = "blogTitle"
+            
+            const dateDiv = document.createElement("div");
+            dateDiv.id = "blogDateDiv"
+
+            const calendarImageDiv = document.createElement("img");
+            calendarImageDiv.src = "/calendar.svg"
+            calendarImageDiv.id = "calendarImg"
 
             const blogPublishDate = document.createElement("p");
-            blogPublishDate.innerText="Publish Date: " + post.frontmatter.pubDate;
+            blogPublishDate.id="pub-date";
+            blogPublishDate.innerText="" + post.frontmatter.pubDate;
+
+
 
             const blogSummary = document.createElement("p");
+            blogSummary.id="blog-summary";
             blogSummary.innerText=post.frontmatter.description;
+
+            dateDiv.append(calendarImageDiv);
+            dateDiv.append(blogPublishDate);
 
 
 
             blogPostLink.append(blogTitle);
-            blogPostLink.append(blogPublishDate);
+            blogPostLink.append(dateDiv);
             blogPostLink.append(blogSummary);
 
             blogPost.append(blogPostLink);
             // TODO: Make the hr outside of the blog post div
-            blogPost.append(document.createElement("hr"));
+            // blogPost.append(document.createElement("hr"));
             blogListingDiv.append(blogPost)
         }
 

@@ -135,6 +135,8 @@ a.nav-links:hover {
 
 #footer-container > div {
     flex: 1 1 calc(50%);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #socials {

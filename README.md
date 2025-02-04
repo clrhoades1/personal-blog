@@ -14,3 +14,8 @@ https://www.npmjs.com/package/markdown-spellcheck
 https://connorrhoades.netlify.app/
 https://app.netlify.com/teams/clrhoades1/sites
 
+## Inspirations
+* [Eva](https://eva.town/)
+* [Silvertaza](https://silvertaza.com/)
+* [Mark Horn](https://markhorn.dev/work)
+* [McKerlie](https://mckerlie.com/posts/)

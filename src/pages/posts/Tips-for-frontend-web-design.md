@@ -27,7 +27,10 @@ Something you will notice with old website is how little you influence the page.
 So if you feel like your page is missing something, consider some non-action generating interactivity. Some examples: the area around a hyperlink fading into a darker color when the user hovers over it. An animal/human icon whose eyes follow the cursor around the page. 
 
 ### Change up The Fonts
+There isn't too much to say on this. Don't just use the defaults :) Check out some font families if you need some inspiration. 
 
 ### Use a Color Palette
+One issue I kept hitting against was that I do not have a good sense of what colors go together. Fortunately, there are plenty of websites that do this work for you! One example being https://colorhunt.co/, though there are plenty of options to look through. Just make sure you find one that gives you the hex codes for the colors. Once I find the website you want, just sift through the palettes and see which one appeals to you and BAM, you have your colors. 
 
 ### Search for (Reasonable) Inspiration
+There are millions of webpages already out there, so use them! I went around looking for software developer blogs for inspiration, that's how I realized the importances of interactive web pages. It also helped me feel comfortable about my idea of keeping the site fairly minimal but still appealing. 

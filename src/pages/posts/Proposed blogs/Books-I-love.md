@@ -4,7 +4,7 @@ author: Connor Rhoades
 description: "A short collection of some of my favorite books"
 pubDate: 02/16/2025
 tags: ["astro", "reading", "learning", "continual education"]
-layout: '../../layouts/Blog Post.astro'
+layout: '../../../layouts/Blog Post.astro'
 ---
 
 # Books I Love

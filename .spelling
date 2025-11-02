@@ -4,3 +4,17 @@
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
 oncall
+NodeJS
+no-brainer
+Maven
+brainer
+java
+pom.xml
+web.xml
+server.xml
+websphere
+javaserver
+jsp
+jsps
+frontend
+astro

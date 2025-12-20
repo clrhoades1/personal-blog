@@ -2,7 +2,7 @@
 title: Switching back to Mac
 author: Connor Rhoades
 description: "Talking about my switch over to Mac and why I did it"
-pubDate: 11/22/2025
+pubDate: 12/20/2025
 tags: ["astro", "reading", "learning", "mac", "development", "terminal"]
 layout: '../../layouts/Blog Post.astro'
 ---

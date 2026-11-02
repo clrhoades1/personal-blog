@@ -1,5 +1,5 @@
 ---
-title: My Time with Rust: The Beginning
+title: "My Time with Rust: The Beginning"
 author: Connor Rhoades
 description: "The first article on learning and working with Rust, starting with why I wanted to take on the challenge of learning Rust"
 pubDate: 02/01/2026
